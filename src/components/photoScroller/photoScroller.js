@@ -14,12 +14,14 @@ const PhotoScroller = ({ images, pos, closingFunction }) => {
     setImageLoading(true);
     setPreButton(true);
     setNextButton(true);
+
     if (currIndex <= 0) setPreButton(true);
     else setPreButton(false);
     if (currIndex + 1 >= images.length) setNextButton(true);
     else {
       setNextButton(false);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currIndex]);
 
@@ -62,25 +64,32 @@ const PhotoScroller = ({ images, pos, closingFunction }) => {
               objectFit: "contain",
             }}
             onLoad={(e) => {
-              console.log("Loaded: ", currIndex);
               setImageLoading(false);
             }}
           ></img>
         </div>
       </div>
-
       <div className="bottom-image-selector">
-        {images.map((image, idx) => (
-          <Photos
-            className={
-              "bottom-images " +
-              (idx === currIndex ? "bottom-selected-image" : "")
-            }
-            src={image.urls.thumb}
-            alt={image.alt_description}
-            onClick={() => setCurrIndex(idx)}
-          />
-        ))}{" "}
+        {images.map((image, idx) => {
+          if (idx === currIndex) {
+            return (
+              <Photos
+                className="bottom-images bottom-selected-image"
+                src={image.urls.thumb}
+                alt={image.alt_description}
+                onClick={() => setCurrIndex(idx)}
+              />
+            );
+          }
+          return (
+            <Photos
+              className="bottom-images"
+              src={image.urls.thumb}
+              alt={image.alt_description}
+              onClick={() => setCurrIndex(idx)}
+            />
+          );
+        })}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import getArrayOfPhotos from "../../helpers/getArrayOfPhotos";
 import Error from "../error/Error";
+import Loader from "../loader/loader";
 import Photos from "../photos/Photos";
 import PhotoScroller from "../photoScroller/photoScroller";
 import "./photoGalary.css";
@@ -18,7 +19,7 @@ const PhotoGalary = () => {
   if (isError) return <Error />;
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return <Loader className="loader-height"/>;
   }
 
   if (data) {

@@ -4,4 +4,9 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  background-color: #d2eafd;
+}
+
+.loader-height {
+  height: 100vh;
 }

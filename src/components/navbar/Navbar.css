@@ -6,7 +6,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to top, #33ccff 0%, #ff99cc 100%);
+  color: #fff !important;
+  background-color: #2196f3 !important;
   position: sticky;
   top: 0;
   z-index: 5;
