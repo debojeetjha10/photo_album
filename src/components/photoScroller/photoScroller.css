@@ -1,0 +1,85 @@
+.photo-scroller-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  background-color: white;
+}
+.photo-scroller {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  padding: 50px;
+  padding-bottom: 5px;
+  margin: auto;
+}
+.scroller-photo-wrapper {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+.download-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: green;
+  font-size: 40px;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+
+.photo-scroller-x {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  font-size: 50px;
+  transform: translateX(-100%);
+  background-color: transparent;
+  border: none;
+}
+.previous-button {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  transform: translateX(-100%);
+  font-size: 50px;
+}
+
+.next-button {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  transform: translateX(100%);
+  font-size: 50px;
+}
+
+.bottom-image-selector {
+  border: 1px solid black;
+  overflow-y: hidden;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: visible;
+  height: 14vh;
+  width: 100vw;
+  margin: auto;
+}
+
+.bottom-images {
+  width: 10vh;
+  height: 10vh;
+  padding: 5px;
+  display: inline-block;
+}
+
+.bottom-selected-image {
+  padding: 0;
+  width: 11vh;
+  height: 11vh;
+  border: 4px solid blue;
+}

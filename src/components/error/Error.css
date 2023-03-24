@@ -1,0 +1,10 @@
+.error-wrapper {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error-wrapper h1 {
+  margin: 5px;
+}
