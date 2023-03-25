@@ -5,12 +5,13 @@ import Error from "../error/Error";
 import Loader from "../loader/loader";
 import Photos from "../photos/Photos";
 import PhotoScroller from "../photoScroller/photoScroller";
-import "./photoGalary.css";
+import "./photoGallery.css";
 
-const PhotoGalary = () => {
-  const { data, isError, isLoading } = useQuery(
+const PhotoGallery = () => {
+  const { data, isError, isLoading, isFetching } = useQuery(
     "getRandomPhotos",
-    getArrayOfPhotos
+    getArrayOfPhotos,
+    { refetchIntervalInBackground: false }
   );
 
   const [scrollerPosition, setScrollerPosition] = useState(-1);
@@ -18,8 +19,8 @@ const PhotoGalary = () => {
 
   if (isError) return <Error />;
 
-  if (isLoading) {
-    return <Loader className="loader-height"/>;
+  if (isLoading || isFetching) {
+    return <Loader className="loader-height" />;
   }
 
   if (data) {
@@ -33,13 +34,17 @@ const PhotoGalary = () => {
       );
 
     return (
-      <div className="galary">
+      <div className="gallery">
         {data.map((image, idx) => (
-          <Photos src={image.urls.small} onClick={() => onClickOnImage(idx)} />
+          <Photos
+            key={image.id}
+            src={image.urls.small}
+            onClick={() => onClickOnImage(idx)}
+          />
         ))}
       </div>
     );
   }
 };
 
-export default PhotoGalary;
+export default PhotoGallery;

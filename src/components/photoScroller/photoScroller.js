@@ -1,5 +1,5 @@
 import { saveAs } from "file-saver";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Loader from "../loader/loader";
 import Photos from "../photos/Photos";
 import "./photoScroller.css";
@@ -9,6 +9,8 @@ const PhotoScroller = ({ images, pos, closingFunction }) => {
   const [prevButton, setPreButton] = useState(false);
   const [nextButton, setNextButton] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
+
+  const bottomScrollerRef = useRef();
 
   useEffect(() => {
     setImageLoading(true);
@@ -21,6 +23,11 @@ const PhotoScroller = ({ images, pos, closingFunction }) => {
     else {
       setNextButton(false);
     }
+
+    bottomScrollerRef.current.scrollTo({
+      left: currIndex * 70 - 10,
+      behavior: "smooth",
+    });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currIndex]);
@@ -69,11 +76,12 @@ const PhotoScroller = ({ images, pos, closingFunction }) => {
           ></img>
         </div>
       </div>
-      <div className="bottom-image-selector">
+      <div className="bottom-image-selector" ref={bottomScrollerRef}>
         {images.map((image, idx) => {
           if (idx === currIndex) {
             return (
               <Photos
+                key={image.id}
                 className="bottom-images bottom-selected-image"
                 src={image.urls.thumb}
                 alt={image.alt_description}
@@ -83,6 +91,7 @@ const PhotoScroller = ({ images, pos, closingFunction }) => {
           }
           return (
             <Photos
+              key={image.id}
               className="bottom-images"
               src={image.urls.thumb}
               alt={image.alt_description}
