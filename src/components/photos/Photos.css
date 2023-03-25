@@ -3,7 +3,6 @@
   width: 23vw;
   border: black solid;
   margin: 4px 4px 4px 4px;
-  transition: transform 200ms ease-in-out;
 }
 .photos {
   height: 100%;
