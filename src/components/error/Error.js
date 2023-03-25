@@ -11,8 +11,6 @@ const Error = () => {
         radius="9"
         color="red"
         ariaLabel="Error"
-        wrapperStyle
-        wrapperClass
       />
       <h1>something went wrong!</h1>
     </div>

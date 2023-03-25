@@ -7,8 +7,9 @@ const Navbar = ({ refreshFn = async () => {} }) => {
   return (
     <div className="navbar">
       <p></p>
-      <h1>Photo Galary</h1>
+      <h1>Photo Gallery</h1>
       <SlReload
+        data-testid="navbar-refresh-button"
         size={"5vh"}
         className={isRotate ? "rotate" : ""}
         onClick={async () => {
