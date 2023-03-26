@@ -7,7 +7,7 @@ const getArrayOfPhotos = async () => {
   the Unplash API fails.
   */
   const unsplash = createApi({
-    accessKey: "",
+    accessKey: "3McLRZU3uhIuzrddvdgb46JT61MYbAgS6x89WQnmabU",
   });
 
   var photos = null;
